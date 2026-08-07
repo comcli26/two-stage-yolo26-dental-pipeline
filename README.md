@@ -106,8 +106,7 @@ If you use this pipeline or its results, please cite:
 
 ## License
 
-See [`LICENSE`](LICENSE). Third-party datasets (Ahmed et al., Chaudhary et al.) retain their own original licenses — see [`docs/data_availability.md`](docs/data_availability.md).
-
+License: The code and notebooks in this repository (notebooks/) are licensed under the MIT License (see `LICENSE`](LICENSE)). The article, results tables, and documentation (article/, results/, docs/) are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0, see LICENSE-DATA), consistent with the CC BY license under which the article will be published in the journal. The original photographs by Ahmed et al. and Chaudhary et al. are not redistributed in this repository; see docs/data_availability.md to access them in their original repositories.
 ## Contact
 
 Corresponding author: Gustavo Muñoz — gmunoz7@utmachala.edu.ec
