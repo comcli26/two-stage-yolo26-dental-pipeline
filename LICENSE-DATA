@@ -4,7 +4,7 @@ This license applies to the contents of the following directories in this
 repository: article/, results/, and docs/ (i.e., the manuscript text/figures,
 the derived result tables, exclusion lists, and documentation produced for
 this study). It does NOT apply to the notebooks/pipelines/, which are
-licensed separately under the MIT License (see LICENSE).
+licensed separately under the MIT License (see [`LICENSE`](LICENSE)).
 
 Copyright (c) 2026 Gustavo Muñoz, Jordy Jimbo, Wilmer Rivas, Eduardo Tusa, Jennifer Celleri
 
