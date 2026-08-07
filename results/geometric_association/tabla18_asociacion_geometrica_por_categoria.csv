@@ -1,0 +1,10 @@
+Categoría estructural,Evaluadas,Correctas,Incorrectas,Ambiguas,Sin asociación,Exactitud
+1st Molar,332,326,4,2,0,0.9879
+1st Premolar,33,25,8,0,0,0.7576
+2nd Molar,258,257,0,1,0,1.0
+2nd Premolar,124,117,3,4,0,0.975
+3rd Molar,18,16,0,2,0,1.0
+Canine,1,0,1,0,0,0.0
+Central Incisor,5,0,4,1,0,0.0
+Lateral Incisor,1,1,0,0,0,1.0
+Sin categoría estructural disponible,5,0,4,1,0,0.0

@@ -1,0 +1,4 @@
+variante,precision,recall,mAP50,mAP50-95,inferencia_ms,tiempo_entrenamiento_min,n_parametros,tamano_MB,f1
+yolo26m-det,0.8435,0.9149,0.9271,0.7209,23.88,102.0,20350223,41.99,0.8777
+yolo26n-det,0.8676,0.8961,0.9265,0.7285,6.56,66.8,2375031,5.14,0.8816
+yolo26s-det,0.8744,0.8937,0.9154,0.7172,10.32,83.7,9465567,19.38,0.8839

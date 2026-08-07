@@ -1,0 +1,4 @@
+variante,TP,FP,FN
+yolo26n-det,654.0,177.0,39.0
+yolo26s-det,663.0,168.0,30.0
+yolo26m-det,645.0,132.0,48.0

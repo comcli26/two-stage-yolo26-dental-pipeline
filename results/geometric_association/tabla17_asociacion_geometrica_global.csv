@@ -1,0 +1,9 @@
+Indicador,Valor
+Imágenes evaluadas,199.0
+Detecciones evaluadas,777.0
+Asociaciones correctas,742.0
+Asociaciones incorrectas,24.0
+Detecciones sin asociación,0.0
+Casos ambiguos,11.0
+Exactitud de asociación,0.9687
+Cobertura de asociación,0.9858
