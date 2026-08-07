@@ -30,7 +30,7 @@ This document describes the provenance, access conditions, and licensing of ever
 
 **Contents of this repository:** all data-preparation, training, ablation, and geometric-association notebooks (`notebooks/`), the CSV result tables and exclusion lists generated during the study (`results/`), and documentation of the computational environment (`docs/environment.md`).
 
-**License:** see `LICENSE` at the repository root. The code is released under a permissive open-source license; the derived CSV/result tables are released under the same terms unless otherwise noted.
+**License:** see [`LICENSE`](LICENSE) at the repository root. The code is released under a permissive open-source license; the derived CSV/result tables are released under the same terms unless otherwise noted.
 
 **Not included in this repository:** raw source photographs from Ahmed et al. or Chaudhary et al. (redistribution restricted by their original licenses — access them directly via the DOIs above), and trained model weights (`.pt` files), which exceed GitHub's practical size limits; see `models/README.md` for the download instructions.
 
