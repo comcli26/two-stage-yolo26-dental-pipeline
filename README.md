@@ -64,7 +64,7 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 
 | Model | Mask mAP@50 | Mask mAP@50–95 | Precision | Recall |
 |---|---|---|---|---|
-| YOLO26n-seg | 0.952 | 0.856 | 0.912 | 0.888 |
+| YOLO26n-seg | 0.952 | 0.842 | 0.912 | 0.888 |
 | **YOLO26s-seg (best)** | **0.960** | **0.856** | **0.917** | **0.926** |
 | YOLO26m-seg | 0.944 | 0.846 | 0.889 | 0.899 |
 
