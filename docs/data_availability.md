@@ -4,7 +4,7 @@ This document describes the provenance, access conditions, and licensing of ever
 
 ## 1. Tooth-instance-segmentation dataset
 
-**Source photographs:** publicly available, de-identified intraoral photographs from Ahmed et al. (2025), *Annotated intraoral image dataset for dental caries detection*, Scientific Data, 12, 512. https://doi.org/10.1038/s41597-025-05647-9 (Zenodo repository).
+**Source photographs:** publicly available, de-identified intraoral photographs from Ahmed et al. (2025), *Annotated intraoral image dataset for dental caries detection*, Scientific Data, 12, 1297. (DOI: https://doi.org/10.1038/s41597-025-05647-9) (Zenodo repository).
 
 **Annotations:** the polygon instance-segmentation masks (eight structural tooth categories) were produced specifically for this study by the collaborating team, using the Roboflow platform. These annotations are a derivative product created for this project and are not published independently elsewhere.
 
