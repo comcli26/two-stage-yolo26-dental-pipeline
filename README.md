@@ -38,10 +38,10 @@ The notebooks must be run in the order below, since each stage consumes the outp
 | Stage | Notebook(s) | Produces |
 |---|---|---|
 | 00 — Data preparation (detection) | `Tratado_0_Deduplicacion_Cruzada` → `Tratado_1_dataset_Ahmed` → `Tratado_2_dataset_Ahmed` → `Tratado_3_dataset_Shweta` | Final caries-detection dataset (1664 images, 4569 boxes, 255 negatives) with no cross-partition / cross-dataset leakage |
-| 02 — Data preparation (segmentation) | `Tratado_0_Verificacion_Participante_Segmentacion` → `Tratado_1_dataset_Segmentacion_Dientes` | Participant/session-level leakage check, re-split dataset (1751 images: 1223/284/244), oversampled training set |
-| 03 — Tooth segmentation | `pipeline_YOLO26_dientes` (unified, resumable) | Trained YOLO26{n,s,m}-seg models, class-distribution and comparison tables |
-| 04 — Caries detection | `entrenamiento_yolo26_deteccion_caries`, `ablacion_negativos_yolo26m_det` | Trained YOLO26{n,s,m}-det models, comparison table, external-negatives ablation |
-| 05 — Geometric association | `pipeline_asociacion_geometrica` | τ/δ calibration, final accuracy/coverage tables, timing table, qualitative figure |
+| 01 — Data preparation (segmentation) | `Tratado_0_Verificacion_Participante_Segmentacion` → `Tratado_1_dataset_Segmentacion_Dientes` | Participant/session-level leakage check, re-split dataset (1751 images: 1223/284/244), oversampled training set |
+| 02 — Tooth segmentation | `pipeline_YOLO26_dientes` (unified, resumable) | Trained YOLO26{n,s,m}-seg models, class-distribution and comparison tables |
+| 03 — Caries detection | `entrenamiento_yolo26_deteccion_caries`, `ablacion_negativos_yolo26m_det` | Trained YOLO26{n,s,m}-det models, comparison table, external-negatives ablation |
+| 04 — Geometric association | `pipeline_asociacion_geometrica` | τ/δ calibration, final accuracy/coverage tables, timing table, qualitative figure |
 
 Data preparation and dataset provenance are documented in [`docs/data_availability.md`](docs/data_availability.md). Environment/library versions are documented in [`docs/environment.md`](docs/environment.md).
 
