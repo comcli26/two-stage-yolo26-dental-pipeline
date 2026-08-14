@@ -14,7 +14,7 @@ This document describes the provenance, access conditions, and licensing of ever
 
 **Source:** the same public dataset of Ahmed et al. (2025), downloaded in YOLO bounding-box format from their Zenodo repository.
 
-**Processing applied in this study:** quality filtering (minimum resolution 640×480 px, sharpness via Laplacian variance, recalibrated threshold = 20.0), cross-dataset deduplication against the segmentation dataset (SHA-256 + pHash, two sequential passes — see `notebooks/00_data_preparation/Tratado_0_Deduplicacion_Cruzada.md` and `Tratado_2_dataset_Ahmed.md`), group-based re-partitioning by participant/session identifier (`GroupShuffleSplit`, 70/15/15), and YOLO annotation geometry validation.
+**Processing applied in this study:** quality filtering (minimum resolution 640×480 px, sharpness via Laplacian variance, recalibrated threshold = 20.0), cross-dataset deduplication against the segmentation dataset (SHA-256 + pHash, two sequential passes — see `notebooks/00_data_preparation/Tratado_0_Deduplicacion_Cruzada.ipynb` and `Tratado_2_dataset_Ahmed.ipynb`), group-based re-partitioning by participant/session identifier (`GroupShuffleSplit`, 70/15/15), and YOLO annotation geometry validation.
 
 **Access:** public via the original Ahmed et al. repository. The exclusion lists and processed splits generated in this study are included in `results/data_preparation/` of this repository.
 
@@ -22,7 +22,7 @@ This document describes the provenance, access conditions, and licensing of ever
 
 **Source:** Chaudhary et al. (2024), *Teeth or Dental Image Dataset*, Mendeley Data. https://doi.org/10.17632/6zsnhrds9t.1
 
-**Processing applied in this study:** quality filtering (minimum resolution 640×480 px, sharpness via Laplacian variance, recalibrated threshold = 20.0), cross-dataset deduplication against the segmentation dataset (SHA-256 + pHash, two sequential passes — see notebooks/00_data_preparation/Tratado_0_Deduplicacion_Cruzada.md and Tratado_2_dataset_Ahmed.md), group-based re-partitioning by participant/session identifier (`GroupShuffleSplit`, 70/15/15), and YOLO annotation geometry validation. The tooth-segmentation dataset itself was independently verified and re-partitioned at the participant/session level — see notebooks/00_data_preparation/Tratado_0_Verificacion_Participante_Segmentacion.md and Tratado_1_dataset_Segmentacion_Dientes.md — after an initial check found 45 unique identifiers shared across its own subsets and with this caries-detection evaluation set (Section 2.2.1 of the article).
+**Processing applied in this study:** quality filtering (minimum resolution 640×480 px, sharpness via Laplacian variance, recalibrated threshold = 20.0), cross-dataset deduplication against the segmentation dataset (SHA-256 + pHash, two sequential passes — see notebooks/00_data_preparation/Tratado_0_Deduplicacion_Cruzada.ipynb and Tratado_2_dataset_Ahmed.ipynb), group-based re-partitioning by participant/session identifier (`GroupShuffleSplit`, 70/15/15), and YOLO annotation geometry validation. The tooth-segmentation dataset itself was independently verified and re-partitioned at the participant/session level — see notebooks/00_data_preparation/Tratado_0_Verificacion_Participante_Segmentacion.ipynb and Tratado_1_dataset_Segmentacion_Dientes.ipynb — after an initial check found 45 unique identifiers shared across its own subsets and with this caries-detection evaluation set (Section 2.2.1 of the article).
 
 **Access:** public via the original Chaudhary et al. Mendeley repository.
 
