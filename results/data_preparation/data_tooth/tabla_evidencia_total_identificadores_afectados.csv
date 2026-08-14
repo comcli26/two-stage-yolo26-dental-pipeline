@@ -1,0 +1,7 @@
+Comprobación,Resultado
+Coincidencias train–valid,13
+Coincidencias train–test,8
+Coincidencias valid–test,1
+Identificadores únicos afectados dentro del segmentador,22
+Coincidencias segmentador–dataset final de caries,26
+Identificadores únicos afectados en total,45

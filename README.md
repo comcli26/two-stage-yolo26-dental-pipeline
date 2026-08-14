@@ -37,10 +37,11 @@ The notebooks must be run in the order below, since each stage consumes the outp
 
 | Stage | Notebook(s) | Produces |
 |---|---|---|
-| 00 — Data preparation | `Tratado_0_Deduplicacion_Cruzada` → `Tratado_1_dataset_Ahmed` → `Tratado_2_dataset_Ahmed` → `Tratado_3_dataset_Shweta` | Final caries-detection dataset (1664 images, 4569 boxes, 255 negatives) with no cross-partition / cross-dataset leakage |
-| 01 — Tooth segmentation | `pipeline_YOLO26n_dientes`, `pipeline_YOLO26s_dientes`, `pipeline_YOLO26m_dientes` | Trained YOLO26{n,s,m}-seg models, class-distribution and comparison tables |
-| 02 — Caries detection | `entrenamiento_yolo26_deteccion_caries`, `ablacion_negativos_yolo26m_det` | Trained YOLO26{n,s,m}-det models, comparison table, external-negatives ablation |
-| 03 — Geometric association | `pipeline_asociacion_geometrica` | τ/δ calibration, final accuracy/coverage tables, timing table, qualitative figure |
+| 00 — Data preparation (detection) | `Tratado_0_Deduplicacion_Cruzada` → `Tratado_1_dataset_Ahmed` → `Tratado_2_dataset_Ahmed` → `Tratado_3_dataset_Shweta` | Final caries-detection dataset (1664 images, 4569 boxes, 255 negatives) with no cross-partition / cross-dataset leakage |
+| 02 — Data preparation (segmentation) | `Tratado_0_Verificacion_Participante_Segmentacion` → `Tratado_1_dataset_Segmentacion_Dientes` | Participant/session-level leakage check, re-split dataset (1751 images: 1223/284/244), oversampled training set |
+| 03 — Tooth segmentation | `pipeline_YOLO26_dientes` (unified, resumable) | Trained YOLO26{n,s,m}-seg models, class-distribution and comparison tables |
+| 04 — Caries detection | `entrenamiento_yolo26_deteccion_caries`, `ablacion_negativos_yolo26m_det` | Trained YOLO26{n,s,m}-det models, comparison table, external-negatives ablation |
+| 05 — Geometric association | `pipeline_asociacion_geometrica` | τ/δ calibration, final accuracy/coverage tables, timing table, qualitative figure |
 
 Data preparation and dataset provenance are documented in [`docs/data_availability.md`](docs/data_availability.md). Environment/library versions are documented in [`docs/environment.md`](docs/environment.md).
 
@@ -64,9 +65,9 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 
 | Model | Mask mAP@50 | Mask mAP@50–95 | Precision | Recall |
 |---|---|---|---|---|
-| YOLO26n-seg | 0.952 | 0.842 | 0.912 | 0.888 |
-| **YOLO26s-seg (best)** | **0.960** | **0.856** | **0.917** | **0.926** |
-| YOLO26m-seg | 0.944 | 0.846 | 0.889 | 0.899 |
+| YOLO26n-seg | 0.947 | 0.841 | 0.925 | 0.895 |
+| **YOLO26s-seg (best)** | **0.962** | **0.863** | **0.953** | **0.897** |
+| YOLO26m-seg | 0.950 | 0.856 | 0.919 | 0.903 |
 
 ### Detection of teeth with visible caries (test set, 242 images)
 
@@ -82,9 +83,9 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 |---|---|
 | τ (overlap threshold) | 0.10 |
 | δ (ambiguity margin) | 0.02 |
-| Accuracy | 0.9687 |
+| Accuracy | 0.9909 |
 | Coverage | 0.9858 |
-| Pipeline latency (segmentation + detection + association) | ≈109 ± 43 ms/image |
+| Pipeline latency (segmentation + detection + association) | ≈105 ± 42 ms/image |
 
 ---
 

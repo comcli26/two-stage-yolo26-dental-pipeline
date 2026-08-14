@@ -14,7 +14,7 @@ Library versions differed slightly across notebooks because each was run in an i
 
 | Library | Version(s) used | Notes |
 | --- | --- | --- |
-| `ultralytics` | 8.4.92 (tooth segmentation), 8.4.115 (caries detection, ablation, geometric association) | YOLO26 training/inference framework |
+| `ultralytics` | 8.4.118 (tooth segmentation, final re-split dataset), 8.4.115 (caries detection, ablation, geometric association) | YOLO26 training/inference framework |
 | `scikit-learn` | 1.6.1 | `GroupShuffleSplit` for group-based train/val/test partitioning |
 | `torch` / `torchvision` | bundled with the Ultralytics install at execution time | CUDA-enabled build used during training; CPU build used for some later inference/evaluation-only sessions |
 | `opencv-python` | bundled with the Ultralytics install | image I/O, Laplacian-variance sharpness filter, mask/box geometry operations |
@@ -25,8 +25,9 @@ Library versions differed slightly across notebooks because each was run in an i
 
 ## Per-pipeline notes
 
-- **`notebooks/00_data_preparation/`**: run with `ultralytics` 8.4.92-era dependencies; uses `imagehash` + `hashlib` (SHA-256) for deduplication, `cv2.Laplacian` for sharpness filtering, and `scikit-learn` `GroupShuffleSplit` for all group-based partitioning steps.
-- **`notebooks/01_tooth_segmentation/`**: three YOLO26-seg variants (n/s/m) trained from scratch (`pretrained=False`) on the T4 GPU; batch size reduced for the medium variant only (8→4) due to GPU memory constraints.
+- **`notebooks/00_data_preparation/data_preparation_caries`**: run with `ultralytics` 8.4.92-era dependencies; uses `imagehash` + `hashlib` (SHA-256) for deduplication, `cv2.Laplacian` for sharpness filtering, and `scikit-learn` `GroupShuffleSplit` for all group-based partitioning steps.
+- **`notebooks/00_data_preparation/data_preparation_tooth` (segmentation subfolder)**: participant/session-level leakage verification and group-based re-partitioning of the tooth-segmentation dataset, run before any training; excludes participants shared with the caries-detection evaluation set.
+- **`notebooks/01_tooth_segmentation/`**: unified, resumable pipeline (pipeline_YOLO26_dientes.ipynb) training three YOLO26-seg variants (n/s/m) from scratch (pretrained=False) on the re-split, participant-verified dataset; periodic checkpoint sync to Drive makes each variant resumable after a Colab disconnect; batch size reduced for the medium variant only (8→4) due to GPU memory constraints.
 - **`notebooks/02_caries_detection/`**: three YOLO26-det variants (n/s/m) fine-tuned from COCO-pretrained weights (`pretrained=True`); trained under `ultralytics` 8.4.115. The ablation notebook reuses the same detection architecture and hyperparameters, varying only the training set (with vs. without external negatives).
 - **`notebooks/03_geometric_association/`**: inference-only pipeline (no training); combines the selected segmentation and detection checkpoints, and was run in some sessions on CPU-only Colab runtimes for evaluation, since no gradient computation is required at this stage.
 

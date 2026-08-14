@@ -1,0 +1,4 @@
+Comprobación,Resultado
+"Identificadores en segmentador (train+valid, tras exclusión)",577
+Identificadores en evaluación final del pipeline (test),190
+Coincidencias segmentador(train+valid) – evaluación final,0

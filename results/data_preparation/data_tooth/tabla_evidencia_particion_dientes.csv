@@ -1,0 +1,7 @@
+Comprobación,Resultado
+Identificadores en train,990
+Identificadores en valid,109
+Identificadores en test,72
+Coincidencias train–valid,13
+Coincidencias train–test,8
+Coincidencias valid–test,1

@@ -22,7 +22,7 @@ This document describes the provenance, access conditions, and licensing of ever
 
 **Source:** Chaudhary et al. (2024), *Teeth or Dental Image Dataset*, Mendeley Data. https://doi.org/10.17632/6zsnhrds9t.1
 
-**Processing applied in this study:** quality filtering (resolution + sharpness, threshold auto-calibrated at the 5th percentile of this dataset's own distribution), stratified sampling proportional to the eight intraoral views (219 images selected), heuristic participant/session grouping inferred from filename patterns, and group-based partitioning (`GroupShuffleSplit`, 70/15/15) — see `notebooks/00_data_preparation/Tratado_3_dataset_Shweta.md`.
+**Processing applied in this study:** quality filtering (minimum resolution 640×480 px, sharpness via Laplacian variance, recalibrated threshold = 20.0), cross-dataset deduplication against the segmentation dataset (SHA-256 + pHash, two sequential passes — see notebooks/00_data_preparation/Tratado_0_Deduplicacion_Cruzada.md and Tratado_2_dataset_Ahmed.md), group-based re-partitioning by participant/session identifier (`GroupShuffleSplit`, 70/15/15), and YOLO annotation geometry validation. The tooth-segmentation dataset itself was independently verified and re-partitioned at the participant/session level — see notebooks/00_data_preparation/Tratado_0_Verificacion_Participante_Segmentacion.md and Tratado_1_dataset_Segmentacion_Dientes.md — after an initial check found 45 unique identifiers shared across its own subsets and with this caries-detection evaluation set (Section 2.2.1 of the article).
 
 **Access:** public via the original Chaudhary et al. Mendeley repository.
 
