@@ -1,0 +1,61 @@
+{
+  "title": "Two-Stage YOLO26 Pipeline for Tooth Instance Segmentation, Detection of Teeth with Visible Caries, and Geometric Association in Intraoral Photographs: Code and Results",
+  "description": "<p>This repository contains the complete, reproducible computational pipeline for the study &quot;A Two-Stage YOLO26 Pipeline for Tooth Instance Segmentation, Detection of Teeth with Visible Caries, and Geometric Association in Intraoral Photographs&quot;. It integrates three stages applied to intraoral photographs: (1) tooth instance segmentation across eight structural categories using YOLO26n/s/m-seg, (2) detection of teeth with visible caries using YOLO26n/s/m-det, and (3) a calibrated centroid&ndash;overlap geometric association procedure linking each caries detection to its corresponding segmented tooth instance.</p><p>Key results: YOLO26s-seg achieved the best segmentation performance (Mask mAP@50 = 0.9616; Mask mAP@50&ndash;95 = 0.8627) on a participant/session-verified test set of 244 images. The geometric association procedure (&tau; = 0.10; &delta; = 0.02) achieved an accuracy of 0.9909 and a coverage of 0.9858 over 777 evaluated detections.</p><p>This is a computer-vision feasibility study. Reported metrics describe algorithmic performance with respect to the reference annotations used and do not constitute clinical validation or diagnostic evidence.</p>",
+  "creators": [
+    {
+      "name": "Muñoz, Gustavo",
+      "affiliation": "Universidad Técnica de Machala, Facultad de Ingeniería Civil, Carrera de Ingeniería en Tecnologías de la Información, Machala, Ecuador",
+      "orcid": "0009-0004-0316-3005"
+    },
+    {
+      "name": "Jimbo, Jordy",
+      "affiliation": "Universidad Técnica de Machala, Facultad de Ingeniería Civil, Carrera de Ingeniería en Tecnologías de la Información, Machala, Ecuador",
+      "orcid": "0009-0008-1959-1839"
+    },
+    {
+      "name": "Rivas, Wilmer",
+      "affiliation": "Universidad Técnica de Machala, Facultad de Ingeniería Civil, Carrera de Ingeniería en Tecnologías de la Información, Machala, Ecuador"
+    },
+    {
+      "name": "Tusa, Eduardo",
+      "affiliation": "Universidad Técnica de Machala, Facultad de Ingeniería Civil, Carrera de Ingeniería en Tecnologías de la Información, Machala, Ecuador"
+    },
+    {
+      "name": "Celleri, Jennifer",
+      "affiliation": "Universidad Técnica de Machala, GIDCOWEB, Facultad de Ingeniería Civil, Carrera de Ingeniería en Tecnologías de la Información, Machala, Ecuador"
+    }
+  ],
+  "keywords": [
+    "dental caries",
+    "deep learning",
+    "tooth instance segmentation",
+    "object detection",
+    "YOLO26",
+    "intraoral photographs",
+    "geometric association",
+    "computer vision",
+    "computational dentistry"
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "10.1038/s41597-025-05647-9",
+      "relation": "references",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.17632/6zsnhrds9t.1",
+      "relation": "references",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.1016/j.dib.2024.110772",
+      "relation": "references",
+      "resource_type": "publication-article"
+    }
+  ],
+  "notes": "This .zenodo.json file is versioned in the GitHub repository so that metadata persists automatically across future releases without manual re-entry."
+}
