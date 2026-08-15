@@ -5,7 +5,7 @@ This document describes the hardware, software, and library versions used to run
 ## Execution platform
 
 - **Platform:** Google Colab (hosted runtime).
-- **GPU:** NVIDIA Tesla T4 (14.9 GB / ~14913 MiB).
+- **GPU:** NVIDIA Tesla T4 (14.9 GB / ~14913 MiB) for tooth segmentation and caries detection training. The final geometric-association pipeline (Table 16 of the article) was run on a separate Colab session equipped with an NVIDIA L4 GPU (23,034 MiB / ~23 GB).
 - **Python version:** 3.12.
 
 ## Key library versions
@@ -29,7 +29,8 @@ Library versions differed slightly across notebooks because each was run in an i
 - **`notebooks/00_data_preparation/data_preparation_tooth` (segmentation subfolder)**: participant/session-level leakage verification and group-based re-partitioning of the tooth-segmentation dataset, run before any training; excludes participants shared with the caries-detection evaluation set.
 - **`notebooks/01_tooth_segmentation/`**: unified, resumable pipeline (pipeline_YOLO26_dientes.ipynb) training three YOLO26-seg variants (n/s/m) from scratch (pretrained=False) on the re-split, participant-verified dataset; periodic checkpoint sync to Drive makes each variant resumable after a Colab disconnect; batch size reduced for the medium variant only (8→4) due to GPU memory constraints.
 - **`notebooks/02_caries_detection/`**: three YOLO26-det variants (n/s/m) fine-tuned from COCO-pretrained weights (`pretrained=True`); trained under `ultralytics` 8.4.115. The ablation notebook reuses the same detection architecture and hyperparameters, varying only the training set (with vs. without external negatives).
-- **`notebooks/03_geometric_association/`**: inference-only pipeline (no training); combines the selected segmentation and detection checkpoints, and was run in some sessions on CPU-only Colab runtimes for evaluation, since no gradient computation is required at this stage.
+- **`notebooks/03_geometric_association/`**: inference-only pipeline (no training); combines the selected segmentation and detection checkpoints. The final run that produced Table 16 (timing), Table 17 (global accuracy/coverage), and Table 18 (per-category accuracy) used a Google Colab runtime equipped with an NVIDIA L4 GPU (23,034 MiB); earlier exploratory sessions of this same notebook may have used CPU-only runtimes, but those are not the source of the reported final tables.
+
 
 ## Reproducibility caveats
 
