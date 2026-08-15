@@ -61,7 +61,7 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 
 ## Main results
 
-### Tooth instance segmentation (test set, 73 images)
+### Tooth instance segmentation (test set, 244 images)
 
 | Model | Mask mAP@50 | Mask mAP@50–95 | Precision | Recall |
 |---|---|---|---|---|
