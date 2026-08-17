@@ -14,19 +14,33 @@ This document describes the provenance, access conditions, and licensing of ever
 
 ## 2. Caries-detection dataset
 
-**Source:** the same public dataset of Ahmed et al. (2025), downloaded in YOLO bounding-box format from their Zenodo repository.
+**Source:** Ahmed et al. (2025), *Annotated intraoral image dataset for dental caries detection*, Scientific Data, 12, 1297. The dataset was downloaded from its public Zenodo repository in YOLO bounding-box format. DOI: https://doi.org/10.1038/s41597-025-05647-9
 
-**Processing applied in this study:** the full 9566-image collection was subjected to the same quality filter used elsewhere in this study (minimum resolution and sharpness via Laplacian variance), with the sharpness threshold auto-calibrated at 2.25 (5th percentile of this dataset's own distribution); 9087 images (95.0%) passed this filter. Of these, 219 images were selected via stratified sampling proportional to the eight intraoral views, subjected to the same preprocessing pipeline applied to the caries set, and labeled with empty annotation files. Because this dataset does not provide explicit patient/session identifiers, a grouping key was inferred heuristically from the numeric substring present in each filename (201 unique groups, 16 with more than one image); the 219 selected images were then assigned to training/validation/test using a group-based split (`GroupShuffleSplit`, 70/15/15by group), with zero group overlap across subsets — see `notebooks/00_data_preparation/data_preparation_caries/Tratado_3_dataset_Shweta.ipynb`.
+**Initial dataset:** the downloaded collection contained 2227 valid image–annotation pairs.
 
-**Access:** public via the original Ahmed et al. repository. The exclusion lists and processed splits generated in this study are included in `results/data_preparation/` of this repository.
+**Processing applied in this study:** images were first filtered using a minimum resolution of 640 × 480 px and a sharpness criterion based on the variance of the Laplacian operator. The sharpness threshold was empirically recalibrated using a manual review of 80 images by two independent researchers. Among the evaluated thresholds, 20.0 was selected as the best-performing threshold according to the F1-Score, with balanced accuracy used as the tie-breaking criterion. After this recalibration, 1645 images remained in the quality-controlled pool.
+
+A first cross-dataset deduplication pass, using SHA-256 and perceptual hashing (pHash), identified 180 unique images for exclusion from the caries-detection dataset because of overlap with the tooth-segmentation training or validation data. After the sharpness-threshold recalibration, a second independent verification identified 20 additional coincident images in the validation and test subsets. In addition, 27 images containing invalid bounding-box coordinates were removed.
+
+The final Ahmed-derived caries-detection dataset contained 1445 images and 4569 valid bounding boxes. The dataset also included 36 native negative images with empty annotation files.
+
+The images were partitioned at the participant/session level using `GroupShuffleSplit`, ensuring that no identifier was shared across the training, validation, and test subsets. The exclusion lists, deduplication records, processed split tables, and validation outputs are available in `results/data_preparation/` of this repository.
+
+**Access:** the source photographs and original caries annotations are publicly available through the original Ahmed et al. repository. The processed files generated in this study are documented in this repository. Raw photographs are not redistributed here.
 
 ## 3. External negative images (caries-free teeth)
 
-**Source:** Chaudhary et al. (2024), *Teeth or Dental Image Dataset*, Mendeley Data. https://doi.org/10.17632/6zsnhrds9t.1
+**Source:** Chaudhary et al. (2024), *Teeth or Dental Image Dataset*, Mendeley Data. DOI: https://doi.org/10.17632/6zsnhrds9t.1
 
-**Processing applied in this study:** quality filtering using a minimum resolution of 640 × 480 px and a Laplacian-variance sharpness threshold of 2.25, corresponding to the 5th percentile of the external dataset's own distribution. A total of 9087 images passed this filter. From this pool, 219 images were selected through stratified sampling proportional to the eight available intraoral views. Because the dataset does not provide explicit participant or acquisition-session identifiers, a heuristic grouping key was derived from the numeric substring present in each filename. GroupShuffleSplit was then applied to these inferred groups using a 70/15/15 split as a best-effort safeguard against cross-partition leakage. The selected images were incorporated as negative examples with empty YOLO annotation files.
+**Initial dataset:** the original collection contained 9566 images of caries-free teeth distributed across eight intraoral views.
 
-**Access:** public via the original Chaudhary et al. Mendeley repository.
+**Processing applied in this study:** the images were filtered using a minimum resolution of 640 × 480 px and a Laplacian-variance sharpness threshold of 2.25. This threshold corresponds to the 5th percentile of the distribution calculated within this external dataset. A total of 9087 images passed the quality filter.
+
+From this pool, 219 images were selected through stratified sampling proportional to the eight available intraoral views. Because the Chaudhary et al. dataset does not provide explicit participant or acquisition-session identifiers, a heuristic grouping key was extracted from the numeric substring present in each filename. This procedure identified 201 inferred groups, 16 of which contained more than one image.
+
+`GroupShuffleSplit` was applied to these inferred groups using a 70/15/15 train/validation/test split as a best-effort safeguard against cross-partition leakage. The selected images were distributed as 152 training images, 31 validation images, and 36 test images. They were incorporated as negative examples using empty YOLO annotation files.
+
+**Access:** the original images are publicly available through the Chaudhary et al. Mendeley Data repository. The selected negative images are not redistributed in this repository.
 
 ## 4. Code, pipelines, and derived result tables
 
