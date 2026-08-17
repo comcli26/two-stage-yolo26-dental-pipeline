@@ -80,7 +80,7 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 |---|---|---|---|---|
 | YOLO26n-det | 0.868 | 0.896 | 0.927 | 0.729 |
 | YOLO26s-det | 0.874 | 0.894 | 0.915 | 0.717 |
-| **YOLO26m-det (best)** | **0.844** | **0.915** | **0.927** | **0.721** |
+| **YOLO26m-det (selected)** | **0.844** | **0.915** | **0.927** | **0.721** |
 
 ### Geometric association (calibrated on validation, evaluated on 777 test-set detections)
 
