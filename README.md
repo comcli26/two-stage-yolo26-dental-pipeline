@@ -106,7 +106,7 @@ Full details in [`docs/data_availability.md`](docs/data_availability.md).
 
 If you use this pipeline or its results, please cite:
 
-> Muñoz, G.; Jimbo, J.; Rivas, W.; Tusa, E.; Celleri, J. *A Two-Stage YOLO26 Pipeline for Tooth Instance Segmentation, Detection of Teeth with Visible Caries, and Geometric Association in Intraoral Photographs.* 2026.
+> Muñoz, G.; Jimbo, J.; Rivas, W.; Tusa, E.; Célleri-Pacheco, J. *A Two-Stage YOLO26 Pipeline for Tooth Instance Segmentation, Detection of Teeth with Visible Caries, and Geometric Association in Intraoral Photographs.* 2026.
 
 ---
 
